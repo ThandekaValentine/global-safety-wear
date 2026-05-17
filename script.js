@@ -208,6 +208,14 @@ function initCheckoutForm() {
       showToast('Your cart is empty. Please add products first.');
       return;
     }
+
+    const orderSummary = cart.map(item =>
+      `${item.name} | Size: ${item.size} | Qty: ${item.qty} | Total: R${(item.price * item.qty).toFixed(2)}`
+    ).join('\n');
+
+    document.getElementById('order-summary-email').value = orderSummary;
+    document.getElementById('order-total-email').value = 'R' + cartTotal().toFixed(2);
+    document.getElementById('delivery-fee-email').value = selectedDelivery.fee === 0 ? 'Free' : 'R' + selectedDelivery.fee.toFixed(2);
   });
 }
 
