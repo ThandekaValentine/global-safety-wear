@@ -201,18 +201,12 @@ function initPaymentMethods() {
 function initCheckoutForm() {
   const form = document.getElementById('checkout-form');
   if (!form) return;
+
   form.addEventListener('submit', e => {
-    e.preventDefault();
     if (cart.length === 0) {
+      e.preventDefault();
       showToast('Your cart is empty. Please add products first.');
       return;
-    }
-    const modal = document.getElementById('success-modal');
-    if (modal) {
-      modal.classList.add('visible');
-      // Clear cart after successful order
-      cart = [];
-      saveCart();
     }
   });
 }
