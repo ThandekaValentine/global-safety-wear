@@ -245,9 +245,23 @@
           </div>
 
           <!-- Submit on mobile -->
-          <a href="https://payf.st/jnpyv" target="_blank" class="btn-place-order" style="text-decoration:none;text-align:center;">
-  💳 Pay Securely with PayFast
-</a>
+          <div id="payment-button-container">
+
+  <!-- Cash On Delivery -->
+  <button type="submit" form="checkout-form" class="btn-place-order" id="cod-button" style="display:none;">
+    ✅ Place Order
+  </button>
+
+  <!-- PayFast -->
+  <a href="https://payf.st/jnpyv" target="_blank"
+     class="btn-place-order"
+     id="payfast-button"
+     style="text-decoration:none;text-align:center;display:flex;justify-content:center;">
+     💳 Pay Securely with PayFast
+  </a>
+
+</div>
+        
 
         </form>
       </div>
