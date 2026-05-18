@@ -268,4 +268,21 @@ document.addEventListener('DOMContentLoaded', () => {
   initPaymentMethods();
   initCheckoutForm();
   renderPaymentSummary();
+const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
+const payfastButton = document.getElementById('payfast-button');
+const codButton = document.getElementById('cod-button');
+
+paymentRadios.forEach(radio => {
+  radio.addEventListener('change', () => {
+
+    if (radio.value === 'cod' && radio.checked) {
+      payfastButton.style.display = 'none';
+      codButton.style.display = 'flex';
+    } else {
+      payfastButton.style.display = 'flex';
+      codButton.style.display = 'none';
+    }
+
+  });
+});
 });
