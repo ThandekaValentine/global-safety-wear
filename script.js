@@ -269,20 +269,27 @@ document.addEventListener('DOMContentLoaded', () => {
   initCheckoutForm();
   renderPaymentSummary();
 const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
-const payfastButton = document.getElementById('payfast-button');
-const codButton = document.getElementById('cod-button');
+function updatePaymentButton() {
+  const selectedPayment = document.querySelector('input[name="payment_method"]:checked');
+  const payfastButton = document.getElementById('payfast-button');
+  const codButton = document.getElementById('cod-button');
 
-paymentRadios.forEach(radio => {
-  radio.addEventListener('change', () => {
+  if (!selectedPayment || !payfastButton || !codButton) return;
 
-    if (radio.value === 'cod' && radio.checked) {
-      payfastButton.style.display = 'none';
-      codButton.style.display = 'flex';
-    } else {
-      payfastButton.style.display = 'flex';
-      codButton.style.display = 'none';
-    }
+  if (selectedPayment.value === 'cod') {
+    payfastButton.style.display = 'none';
+    codButton.style.display = 'flex';
+  } else {
+    payfastButton.style.display = 'flex';
+    codButton.style.display = 'none';
+  }
+}
 
+document.querySelectorAll('.pay-method').forEach(method => {
+  method.addEventListener('click', () => {
+    setTimeout(updatePaymentButton, 50);
   });
 });
+
+updatePaymentButton();
 });
