@@ -253,12 +253,25 @@
   </button>
 
   <!-- PayFast -->
-  <a href="https://payf.st/jnpyv" target="_blank"
-     class="btn-place-order"
-     id="payfast-button"
-     style="text-decoration:none;text-align:center;display:flex;justify-content:center;">
-     💳 Pay Securely with PayFast
-  </a>
+ <form id="payfast-form"
+      action="https://www.payfast.co.za/eng/process"
+      method="post"
+      target="_blank">
+
+  <input type="hidden" name="merchant_id" value="18195722">
+  <input type="hidden" name="merchant_key" value="1ixywavgtvoql">
+
+  <input type="hidden" name="amount" id="payfast-amount">
+  <input type="hidden" name="item_name" value="Global Safety Wear Order">
+
+  <button type="submit"
+          class="btn-place-order"
+          id="payfast-button"
+          style="width:100%;">
+    💳 Pay Securely with PayFast
+  </button>
+
+</form>
 
 </div>
         
