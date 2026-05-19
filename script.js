@@ -90,7 +90,12 @@ function updateTotals() {
   const sub = cartSubtotal();
   const fee = selectedDelivery.fee;
   const grand = cartTotal();
+   
+const payfastAmount = document.getElementById('payfast-amount');
 
+if (payfastAmount) {
+  payfastAmount.value = grand.toFixed(2);
+}
   const setEl = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
   setEl('cart-subtotal', 'R' + sub.toFixed(2));
   setEl('cart-delivery', fee === 0 ? 'Free' : 'R' + fee.toFixed(2));
